@@ -142,3 +142,28 @@ void RREF1 (double matrix1[][2]) {
         lead++;
     }
 }
+
+void RREF2 (double matrix2[][3]) {
+
+    const int numRows = 3;
+    const int numCols = 3;
+
+    int lead = 0;
+
+    while(lead < numRows){
+        double div, mul;
+
+        for (int i = 0; i < numRows; i++){
+            div = matrix1[lead][lead];
+            mul = matrix1[i][lead] / matrix1[lead][lead];
+
+            for (int j = 0; j < numCols;  j++){
+                if (i == lead)
+                    matrix1[i][j] = matrix1[i][j] / div;
+                else
+                    matrix1[i][j] = matrix1[i][j] - (matrix1[lead][j] * mul);
+            }
+        }
+        lead++;
+    }
+}
