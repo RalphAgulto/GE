@@ -1,10 +1,13 @@
 #include <iostream>
 #include <math.h>
 #include <cstdlib>
+#include <Eigen/Core>
+#include <SymEigsSolver.h> 
 
 using namespace std;
 
 void RREF1 (double matrix1[][2]);
+void RREF2 (double matrix2[][3]);
 
 int main() {
     int order=0;
@@ -103,6 +106,25 @@ int main() {
     }
 
     if(order==3){
+        cout << "Enter 1st constant for 1st term for first equation: " << endl;
+        cin >> x1;
+        cout << "Enter 2nd constant for 2nd term for first equation: " << endl;
+        cin >> x2;
+        cout << "Enter 3rd constant for 3rd term for first equation: " << endl;
+        cin >> x3;
+        cout << "Enter 1st constant for 1st term for second equation: " << endl;
+        cin >> y1;
+        cout << "Enter 2nd constant for 2nd term for second equation: " << endl;
+        cin >> y2;
+        cout << "Enter 3rd constant for 3rd term for second equation: " << endl;
+        cin >> y3;
+
+   	Eigen::MatrixXd matrix2 = Eigen::MatrixXd::Random(10, 10); //find eigenvalues
+   	eigenvectors (double matrix2); //find eignevectors
+   	
+
+
+
 
     }
 
@@ -118,7 +140,7 @@ int main() {
     return 0;
 }
 
-void RREF1 (double matrix1[][2]) {
+void RREF1 (double matrix1[][2]) {}
 
     const int numRows = 2;
     const int numCols = 2;
@@ -141,7 +163,7 @@ void RREF1 (double matrix1[][2]) {
         }
         lead++;
     }
-}
+
 
 void RREF2 (double matrix2[][3]) {
 
